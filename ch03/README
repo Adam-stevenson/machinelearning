@@ -1,0 +1,27 @@
+creatBunch 核心
+检测所有的元素是属于同一类别
+   if so:return 类别标签
+   else:
+   		寻找最好的划分集合的标签
+		划分集合
+		构建分支节点
+		for 划分的子集：
+			调用createBunch， 并返回结果到分支节点
+		return 分支节点
+# {'nosurfacing': {0: 'no', 1: {'flippers': {0: 'no', 1: 'yes'}}}}
+
+1. ID3
+   1. 信息的计算公式：
+      l(Xi) = -log2p(Xi)
+   2. 熵 就是 信息的期望
+      H = -∑ p(Xi)*log2p(Xi)
+   3. 信息增益=基础熵(以最后一列的标签值作为划分) - 新信息(以某列的各个值划分)
+       其中新信息 = -∑p(xi)*shannonEnt(xi)
+2. C4.5
+   信息增益率
+   Gain(S, A) 为ID3上面的信息增益
+   SplitInfo(S, A)表示按照特征A划分样本集合S的广度和均匀性(也就是上面ID3所说的熵,shnnoEnt)
+   GainRatio (S, A) = Gain(S, A)/SplitInfo(S, A)
+   其中SplitInfo(S, A) = -∑|si|/|S| * log2(|si|/|S|) = -∑p(xi)*log2p(xi)
+   其中si--sc 是 特征A 的 C个不同特征之构成的样本子集合
+
